@@ -1,0 +1,16 @@
+name: Secret Demo
+
+on:
+  push:
+
+jobs:
+  secret-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Test Secret
+        env:
+          MY_SECRET: ${{ secrets.MY_SECRET }}
+        run: |
+          echo "Secret is available"
+          echo "Secret length is ${#MY_SECRET}"
